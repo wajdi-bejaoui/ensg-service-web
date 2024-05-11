@@ -1,0 +1,84 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://com.springbootsoap.allapis"
+	targetNamespace="http://com.springbootsoap.allapis"
+	elementFormDefault="qualified">
+
+
+	<xs:complexType name="enseignantInfo">
+		<xs:sequence>
+			<xs:element name="enseignantId" type="xs:long" />
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="department" type="xs:string" />
+			<xs:element name="phone" type="xs:string" />
+			<xs:element name="address" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="serviceStatus">
+		<xs:sequence>
+			<xs:element name="status" type="xs:string" />
+			<xs:element name="message" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="addEnseignantRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="enseignantInfo" type="tns:enseignantInfo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="addEnseignantResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceStatus" type="tns:serviceStatus" />
+				<xs:element name="enseignantInfo" type="tns:enseignantInfo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="getEnseignantByIdRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="enseignantId" type="xs:long" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getEnseignantResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="enseignantInfo" type="tns:enseignantInfo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="updateEnseignantRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="enseignantInfo" type="tns:enseignantInfo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="updateEnseignantResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceStatus" type="tns:serviceStatus" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteEnseignantRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="enseignantId" type="xs:long" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteEnseignantResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceStatus" type="tns:serviceStatus" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
